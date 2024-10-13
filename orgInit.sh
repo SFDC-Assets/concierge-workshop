@@ -6,9 +6,9 @@ sf data update record -s User -w "Name='User User'" -v "UserPermissionsKnowledge
 sf project deploy start
 sf org assign permset -n solutions
 sf data upsert bulk -f data/Knowledge__kav.csv -i id -s Knowledge__kav --wait 30
-# sfdx automig:load -d data
 
 sf apex run -f scripts/conciergeSetup.cls
-
 sf automig load -d data2
+
+sf demoutil user password set -p salesforce1 -g User -l User
 sf org open
